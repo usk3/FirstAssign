@@ -1,0 +1,17 @@
+@CHARSET "ISO-8859-1";
+hr {color:sienna;}
+p {margin-left:20px;color:blue}
+
+h6
+{
+color:green;
+text-align:center;
+font-size:10pt;
+}
+
+h2
+{
+color:blue;
+text-align:left;
+font-size:8pt;
+}
