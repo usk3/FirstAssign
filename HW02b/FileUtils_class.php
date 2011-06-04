@@ -118,7 +118,9 @@ class FileUtils_class{
 				$listFiles = array();
 				if ($fp = opendir($_dirName)) {
 					while (FALSE !== ($file = readdir($fp))) {
-						$listFiles[] = $file;
+						if(!is_dir($_dirName."/".$file)){
+							$listFiles[] = $file;
+						}
 					}
 					closedir($fp);
 				}
@@ -230,6 +232,11 @@ class FileUtils_class{
 
 	function createDirectory($_path, $_dirName){
 		if($this->checkDir($_path) == 0){
+			if(is_dir($_path."/".$_dirName)){
+				echo '<br>';
+				print "Directory Already exists. Please specify another name for directory!";
+				return -1;
+			}
 			if (!mkdir($_path.$_dirName, 0777)) {
 				echo '<br>';
 				print "Couldn't create directory.";
