@@ -1,0 +1,10 @@
+11/06/11  13:34:42  WARNING:File already exists, appending content: myfile1.txt
+11/06/11  13:34:42  DEBUG:Succesfully wrote to file: myfile1.txt
+11/06/11  13:34:42  DEBUG:Getting all files under dir : /home/ukarri/public_html/FirstAssign
+11/06/11  13:34:42  DEBUG:Directory exists : /home/ukarri/public_html/FirstAssign11/06/11  13:34:42  DEBUG:Entering writing array to CSV
+11/06/11  13:34:42  DEBUG:Successfully wrote to file : colors.csv
+11/06/11  13:34:42  DEBUG:Entering readfromcsv
+11/06/11  13:34:42  DEBUG:File exists colors.csv
+11/06/11  13:34:42  INFO:Successfully read from File: colors.csv
+11/06/11  13:34:42  DEBUG:Entering deletFile function
+11/06/11  13:34:42  WARNING:File does not exists or doesn't have permission to delete: test.txt
