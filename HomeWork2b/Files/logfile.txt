@@ -1,0 +1,40 @@
+11/06/11  13:34:42  WARNING:File already exists, appending content: myfile1.txt
+11/06/11  13:34:42  DEBUG:Succesfully wrote to file: myfile1.txt
+11/06/11  13:34:42  DEBUG:Getting all files under dir : /home/ukarri/public_html/FirstAssign
+11/06/11  13:34:42  DEBUG:Directory exists : /home/ukarri/public_html/FirstAssign11/06/11  13:34:42  DEBUG:Entering writing array to CSV
+11/06/11  13:34:42  DEBUG:Successfully wrote to file : colors.csv
+11/06/11  13:34:42  DEBUG:Entering readfromcsv
+11/06/11  13:34:42  DEBUG:File exists colors.csv
+11/06/11  13:34:42  INFO:Successfully read from File: colors.csv
+11/06/11  13:34:42  DEBUG:Entering deletFile function
+11/06/11  13:34:42  WARNING:File does not exists or doesn't have permission to delete: test.txt
+11/06/11  19:52:17  INFO:Creating file : myfile1.txt
+11/06/11  19:52:17  DEBUG:Succesfully wrote to file: myfile1.txt
+11/06/11  19:52:17  DEBUG:Getting all files under dir : /home/ukarri/public_html/FirstAssign
+11/06/11  19:52:17  DEBUG:Directory exists : /home/ukarri/public_html/FirstAssign11/06/11  19:52:17  DEBUG:Entering writing array to CSV
+11/06/11  19:52:17  DEBUG:Successfully wrote to file : colors.csv
+11/06/11  19:52:17  DEBUG:Entering readfromcsv
+11/06/11  19:52:17  DEBUG:File exists colors.csv
+11/06/11  19:52:17  INFO:Successfully read from File: colors.csv
+11/06/11  19:52:17  DEBUG:Entering deletFile function
+11/06/11  19:52:17  WARNING:File does not exists or doesn't have permission to delete: test.txt
+12/06/11  12:40:28  INFO:Creating file : myfile1.txt
+12/06/11  12:40:28  DEBUG:Succesfully wrote to file: myfile1.txt
+12/06/11  12:40:28  DEBUG:Getting all files under dir : /home/ukarri/public_html/FirstAssign
+12/06/11  12:40:28  DEBUG:Directory exists : /home/ukarri/public_html/FirstAssign12/06/11  12:40:28  DEBUG:Entering writing array to CSV
+12/06/11  12:40:28  DEBUG:Successfully wrote to file : colors.csv
+12/06/11  12:40:28  DEBUG:Entering readfromcsv
+12/06/11  12:40:28  DEBUG:File exists colors.csv
+12/06/11  12:40:28  INFO:Successfully read from File: colors.csv
+12/06/11  12:40:28  DEBUG:Entering deletFile function
+12/06/11  12:40:28  WARNING:File does not exists or doesn't have permission to delete: test.txt
+12/06/11  13:27:24  INFO:Creating file : myfile1.txt
+12/06/11  13:27:24  DEBUG:Succesfully wrote to file: myfile1.txt
+12/06/11  13:27:24  DEBUG:Getting all files under dir : /home/ukarri/public_html/FirstAssign
+12/06/11  13:27:24  DEBUG:Directory exists : /home/ukarri/public_html/FirstAssign12/06/11  13:27:24  DEBUG:Entering writing array to CSV
+12/06/11  13:27:24  DEBUG:Successfully wrote to file : colors.csv
+12/06/11  13:27:24  DEBUG:Entering readfromcsv
+12/06/11  13:27:24  DEBUG:File exists colors.csv
+12/06/11  13:27:24  INFO:Successfully read from File: colors.csv
+12/06/11  13:27:24  DEBUG:Entering deletFile function
+12/06/11  13:27:24  WARNING:File does not exists or doesn't have permission to delete: test.txt
