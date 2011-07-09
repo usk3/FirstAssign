@@ -79,9 +79,12 @@ class Thing extends Tag{
 	}
 
 	function getUrlTag() {
-
-		return $this->url->tag;
-
+		if(strlen($this->url->tag) != 0){
+			return $this->url->tag;
+		}
+		else{
+			return 'a';
+		}
 	}
 	function setUrlAttributes($var) {
 	  
@@ -115,12 +118,15 @@ class Thing extends Tag{
 	}
 
 	function getImageTag() {
-
-		return $this->image->tag;
-
+		if(strlen($this->image->tag) != 0){
+			return $this->image->tag;
+		}
+		else{
+			return 'img';
+		}
 	}
 	function setImageAttributes($var) {
-	  
+		 
 		$class = get_class($this) . ' image ' . $var;
 		$this->image->attributes['class'] = $class;
 		$this->image->attributes['itemprop'] = 'image';
@@ -152,7 +158,12 @@ class Thing extends Tag{
 
 	function getDescriptionTag() {
 
-		return $this->description->tag;
+	if(strlen($this->description->tag) != 0){
+			return $this->description->tag;
+		}
+		else{
+			return 'span';
+		}
 
 	}
 	function setDescriptionAttributes($var) {
@@ -184,11 +195,26 @@ class Thing extends Tag{
 		$tag = new Tag($this->getNameTag(), $this->getNameAttributes(), $this->getNameValue());
 		return $tag->get_tag();
 	}
+	private function printUrlHtmlTag(){
+		$tag = new Tag($this->getUrlTag(), $this->getUrlAttributes(), $this->getUrlValue());
+		return $tag->get_tag();
+	}
+	private function printDescriptionHtmlTag(){
+		$tag = new Tag($this->getDescriptionTag(), $this->getDescriptionAttributes(), $this->getDescriptionValue());
+		return $tag->get_tag();
+	}
+	private function printImageHtmlTag(){
+		$tag = new Tag($this->getImageTag(), $this->getImageAttributes(), $this->getImageValue());
+		return $tag->get_tag();
+	}
 
 	function printHtml(){
 		$html = $this->printItemScopeHtmlOpen();
-		$html = $html.$this->printItemScopeHtmlClose();
-		$html = $html.$this->printNameHtmlTag();
+		$html = $html.$this->printItemScopeHtmlClose().'<br>';
+		$html = $html.$this->printNameHtmlTag().'<br>';
+		$html = $html.$this->printUrlHtmlTag().'<br>';
+		$html = $html.$this->printDescriptionHtmlTag().'<br>';
+		$html = $html.$this->printImageHtmlTag().'<br>';
 		return $html;
 	}
 

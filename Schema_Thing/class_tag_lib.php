@@ -67,7 +67,7 @@ function __autoload($classname){
 	/*Determines what type of tag the user has chosen. Also will display error if not a supported tag*/
 	function tag_validation($tagType){
 
-		$validTags = array("!DOCTYPE", "a", "address", "article", "blockquote", "body", "br", "detail", "dfn", "div", "dl", "dt", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "HTML", "li", "link", "menu", "meta", "nav", "ol", "p", "section", "span", "style", "summary", "title", "ul");
+		$validTags = array("!DOCTYPE", "a", "address", "article", "blockquote", "body", "br", "detail", "dfn", "div", "dl", "dt", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "HTML", "li", "link", "menu", "meta", "nav", "ol", "p", "section", "span", "style", "summary", "title", "ul","img");
 		$specialTags = array("!DOCTYPE", "br", "link", "meta");
 
 		/*Makes sure the tag is a valid tag then checks to see if it is a special tag*/
