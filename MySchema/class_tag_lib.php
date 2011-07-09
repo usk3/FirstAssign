@@ -21,7 +21,7 @@ function __autoload($classname){
 
 	/*Automatically creates the tag based on the given parameters*/
 	function __construct($tagType, $tagAttributes, $tagContent){
-
+		
 		$this->type = $tagType;
 		$this->attributes = $tagAttributes;
 		$this->content = $tagContent;
@@ -33,6 +33,9 @@ function __autoload($classname){
 
 	/*The function that actually creates the tag. Uses a validator to make sure that the type of tag is supported*/
 	function set_tag($tagType, $tagAttributes, $tagContent){
+		if((strlen($tagType)==0 || strlen($tagContent) == 0)){
+			return '';
+		}
 
 		$validate = $this->tag_validation($tagType);
 
@@ -64,7 +67,7 @@ function __autoload($classname){
 	/*Determines what type of tag the user has chosen. Also will display error if not a supported tag*/
 	function tag_validation($tagType){
 
-		$validTags = array("!DOCTYPE", "a", "address", "article", "blockquote", "body", "br", "detail", "dfn", "div", "dl", "dt", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "HTML", "li", "link", "menu", "meta", "nav", "ol", "p", "section", "span", "style", "summary", "title", "ul");
+		$validTags = array("!DOCTYPE", "a", "address", "article", "blockquote", "body", "br", "detail", "dfn", "div", "dl", "dt", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "HTML", "li", "link", "menu", "meta", "nav", "ol", "p", "section", "span", "style", "summary", "title", "ul","img");
 		$specialTags = array("!DOCTYPE", "br", "link", "meta");
 
 		/*Makes sure the tag is a valid tag then checks to see if it is a special tag*/

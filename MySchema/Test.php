@@ -2,17 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Recipe Creator</title>
+<title>Schema Creator</title>
+<?php include("class_tag_lib.php"); ?>
 <?php include("Thing.php"); ?>
-<?php include("class_tag_lib.php"); ?> 
 </head>
 <body>
 <?php
 echo '<h1> Welcome </h1>';
 $thing = new Thing();
 $thing->setNameValue('lego block');
-$thing->setNameTag('h1');
-$thing->setNameAttributes('color:red');
+$thing->setNameTag("span");
+$thing->setNameAttributes('');
 
 $thing->setUrlValue('http://www.lego.com');
 $thing->setUrlTag('a');
@@ -27,11 +27,7 @@ $thing->setDescriptionTag('span');
 $thing->setDescriptionAttributes('text');
 
 
-
-echo "<div itemscope itemtype=".$thing->getItemTypeValue().">" ;
-/*Creates the tag*/
-$tag = new Tag($thing->getNameTag(), $thing->getNameAttributes(), $thing->getNameValue());
-echo $tag->get_tag();
+echo $thing->printHtml();
 
 ?>
 </body>
