@@ -42,7 +42,7 @@ function __autoload($classname){
 		/*Check to make sure that the tag type & attributes are valid*/
 		if($this->attribute_validation($tagAttributes) && ($validate!='Error')){
 
-			$tagOutput = "&lt".$tagType;
+			$tagOutput = "<".$tagType;
 
 			/*Creates the section for the attributes*/
 			foreach($tagAttributes as $key => $value){
@@ -53,10 +53,10 @@ function __autoload($classname){
 			/*Determines the type of tag to create based on validation function*/
 			switch($validate){
 				case 'Normal':
-					$tagOutput .= $tagAttributesOutput."&gt".$tagContent."&lt/".$tagType."&gt";
+					$tagOutput .= $tagAttributesOutput.">".$tagContent."</".$tagType.">";
 					break;
 				case 'Special':
-					$tagOutput .= "/&gt";
+					$tagOutput .= "/>";
 					break;
 			}
 

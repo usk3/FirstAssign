@@ -181,13 +181,13 @@ class Thing extends Tag{
 	}
 	/*** print html tag functions **/
 	private function printItemScopeHtmlOpen(){
-		$tag = "&lt".'div'.' itemscope itemtype='.$this->getItemTypeValue();
+		$tag = "<".'div'.' itemscope itemtype='.$this->getItemTypeValue();
 		return $tag;
 	}
 	
 	
 	private function printItemScopeHtmlClose(){
-		$tag = "&gt";
+		$tag = ">";
 		return $tag;
 	}
 

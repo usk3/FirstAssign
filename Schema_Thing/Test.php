@@ -10,17 +10,21 @@
 <?php
 echo '<h1> Welcome </h1>';
 $thing = new Thing();
+
 $thing->setNameValue('lego block');
 $thing->setNameTag("span");
 $thing->setNameAttributes('');
+
 
 $thing->setUrlValue('http://www.lego.com');
 $thing->setUrlTag('a');
 $thing->setUrlAttributes('link');
 
+
 $thing->setImageValue('http://www.mmocrunch.com/wp-content/uploads/2008/01/lego.jpg');
 $thing->setImageTag('img');
 $thing->setImageAttributes('picture');
+
 
 $thing->setDescriptionValue('This is a small red lego block');
 $thing->setDescriptionTag('span');
