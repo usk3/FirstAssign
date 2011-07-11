@@ -1,6 +1,6 @@
 <?php
 
-class Thing extends Tag{
+class Thing extends Tag {
 
 	private $name;
 	private $url;
@@ -18,6 +18,10 @@ class Thing extends Tag{
 
 		$this->itemtype->attributes['itemprop'] = 'itemtype';
 
+	}
+	
+	function setItemTypeValue($var){
+		$this->itemtype = $var;
 	}
 
 	function setNameValue($var) {
@@ -91,6 +95,7 @@ class Thing extends Tag{
 		$class = get_class($this) . ' url ' . $var;
 		$this->url->attributes['class'] = $class;
 		$this->url->attributes['itemprop'] = 'url';
+		$this->url->attributes['href'] = $this->getUrlValue();
 
 	}
 
@@ -130,6 +135,7 @@ class Thing extends Tag{
 		$class = get_class($this) . ' image ' . $var;
 		$this->image->attributes['class'] = $class;
 		$this->image->attributes['itemprop'] = 'image';
+		$this->image->attributes['src'] = '';
 
 	}
 

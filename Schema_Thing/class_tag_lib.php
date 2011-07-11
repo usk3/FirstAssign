@@ -46,7 +46,7 @@ function __autoload($classname){
 
 			/*Creates the section for the attributes*/
 			foreach($tagAttributes as $key => $value){
-				$tagAttributesOutput .= " ".$key."=&#039".$value."&#039";
+				$tagAttributesOutput .= " ".$key.'='."'".$value."'";
 			}
 
 
