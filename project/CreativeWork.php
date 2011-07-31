@@ -150,5 +150,22 @@ public function UpdateCreativeWork($_criteria, $_newData)
 	echo "<b>Author</b>  : ". $this->printauthorHtmlTag().'<br>';
 }
 
+public function saveCreativeWork()
+{
+
+	$dbl=new DBLayer();
+	$dbl->setCollectionObj($this->CretiveColname);
+	$obj=$this->prepare_array_Creativework();
+	$dbl->SaveCollection($obj,$this->objID);
+	$cursor = $dbl->get_CollectionObject($this->CretiveColname,$this->objID);
+	foreach ($cursor as $arr)
+	{
+		$this->about->value = $arr['about'];
+		$this->author->value = $arr['author'];
+	}
+
+	echo "<b>about</b> : " . $this->printaboutHtmlTag().'<br>';
+	echo "<b>Author</b>  : ". $this->printauthorHtmlTag().'<br>';
+}
 }
 ?>

@@ -54,16 +54,30 @@ class DBLayer
     public function InsertCollection($obj,$id)
     {
     //Insert obj values into Collection
-    if(!is_null($obj)|| !is_null($this->Collect))
-    $this->Collect->remove();
-    if (!is_null($id))
-    {
-    $obj['_id']=$id;    
-    }
-    $this->Collect->insert($obj); 
-    return  $obj['_id'];
+    	if(!is_null($obj)|| !is_null($this->Collect))
+    	$this->Collect->remove();
+    	if (!is_null($id))
+    	{
+    		$obj['_id']=$id;
+    	}
+    	$this->Collect->insert($obj);
+    	return  $obj['_id'];
     }
     //Update collection based on Criteria and New data.
+    public function SaveCollection($obj,$id)
+    {
+    	//save obj values into Collection
+    	// save will insert if obj doesn't exists in database or updates obj if exists.
+    	if(!is_null($obj)|| !is_null($this->Collect))
+    	if (!is_null($id))
+    	{
+    		$obj['_id']=$id;
+    	}
+    	$this->Collect->save($obj);
+    	return  $obj['_id'];
+    }
+    
+//Update collection based on Criteria and New data.
     public function UpdateCollection($colName,$criteria,$newData)
     {
     //Insert obj values into Collection

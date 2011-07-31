@@ -327,6 +327,23 @@ echo '<b>Image </b> :'. $this->printImageHtmlTag().'<br>';
 //$this->printNameHtmlTag();
     
 }
+
+public function saveThing()
+{
+	// $this->get_object();
+	$dbl=new DBLayer();
+	$dbl->setCollectionObj($this->Colname);
+	$obj=$this->prepare_array();
+	$this->objID=$dbl->SaveCollection($obj,NULL);
+	$cursor = $dbl->get_CollectionObjectbyid($this->Colname,$this->objID);
+	foreach ($cursor as $arr)
+	{
+		$this->name->value = $arr["name"];
+		$this->url->value = $arr["url"];
+		$this->image->value = $arr["image"];
+		$this->description->value = $arr["description"];
+	}
+}
 public function UpdateThing($_criteria, $_newData)
 {
 

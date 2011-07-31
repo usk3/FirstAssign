@@ -132,5 +132,23 @@ public function UpdateRecipe($_criteria, $_newData)
 	echo "<b>Ingredients</b>  : ". $this->printingredientsHtmlTag().'<br>';
 }
 
+public function saveRecipeWork()
+{
+
+	$dbl=new DBLayer();
+	$dbl->setCollectionObj($this->RecipeColname);
+	$obj=$this->prepare_array_Recipework();
+	$dbl->SaveCollection($obj,$this->objID);
+	$cursor = $dbl->get_CollectionObject($this->RecipeColname,$this->objID);
+	foreach ($cursor as $arr)
+	{
+		$this->instructions->value = $arr['instructions'];
+		$this->ingredients->value = $arr['ingredients'];
+	}
+
+	echo "<b>Instructions</b> : " . $this->printinstructionsHtmlTag().'<br>';
+	echo "<b>Ingredients</b>  : ". $this->printingredientsHtmlTag().'<br>';
+}
+
 }
 ?>

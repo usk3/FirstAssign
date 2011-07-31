@@ -2,25 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<form action="Add.php" method="post" >
+<form action="UpdateRecipe.php" method="post" >
 <title>Schema Creator</title>
 </head>
 <?php
 function __autoload($class_name) {
 include $class_name . '.php';
 }
-if (empty($_POST["RecipeName"]) && empty($_POST["Description"]) && empty($_POST["ImageName"]) && empty($_POST["URLName"]))
+if (empty($_POST["RecipeName"]) || empty($_POST["Description"]) || empty($_POST["ImageName"]) || empty($_POST["URLName"]))
 {
  echo 'Please Enter Recipe Information.' ;
  }
 else
 {
-$thing=new Recipe();
-/*
-echo $thing->PrintThing();
-echo $thing->PrintCreativeWork();
-echo $thing->PrintRecipeWork();
-*/
+$thing=new Recipe('' ,'',''); //As Thing, the super parent class extends Tag. Tag construtor is invoked.
 echo $thing->saveThing();
 echo $thing->saveCreativeWork();
 echo $thing->saveRecipeWork();
@@ -53,10 +48,12 @@ echo 'Recipe Saved Successfully.';
         <td align="left"><input  id="AboutID" type="text" name="About" /></td>  
         </tr>
         <tr align="center">
-        <td align="right"><strong>Author:</strong></td>
+        <td align="right"><strong>Author:</strong></td> 
+        
+        
         <td align="left"><input  id="AuthorID" type="text" name="Author" /></td>  
-        </tr>
-        <tr align="center">
+        </tr>10
+        
         <td align="right"><strong>Ingredients:</strong></td>
         <td align="left"><input  id="ingrenID" type="text" name="Ingredients" /></td>  
         </tr>
@@ -65,7 +62,7 @@ echo 'Recipe Saved Successfully.';
         <td align="left"><input  id="instructID" type="text" name="Instructions" /></td>  
         </tr>
         <tr align="left" >
-            <td colspan="2" align="center"><input type="submit"  name="Check" title="Check" value="Save Recipe"/><h4><a href='index.php'>Search Recipe</a></h4></td>
+            <td colspan="2" align="center"><input type="submit"  name="Check" title="Check" value="Update Recipe"/><h4><a href='index.php'>Search Recipe</a></h4></td>
         </tr>
         </table>
         </div>
