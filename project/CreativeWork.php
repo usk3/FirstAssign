@@ -130,7 +130,24 @@ $this->author->value = $arr['author'];
 }
 
 echo "<b>about</b> : " . $this->printaboutHtmlTag().'<br>';
-echo "<b>Author</b>  : ". $this->printauthorHtmlTag().'<br>'; 
+echo "<b>Author</b>  : ". $this->printauthorHtmlTag().'<br>';
+}
+
+public function UpdateCreativeWork($_criteria, $_newData)
+{
+
+	$dbl=new DBLayer();
+	$dbl->setCollectionObj($this->Colname);
+	$this->objID=$dbl->UpdateCollection($this->Colname, $_criteria, $_newData);
+	$cursor = $dbl->get_CollectionObjectbyid($this->Colname,$this->objID);
+	foreach ($cursor as $arr)
+	{
+		$this->about->value = $arr['about'];
+		$this->author->value = $arr['author'];
+	}
+
+	echo "<b>about</b> : " . $this->printaboutHtmlTag().'<br>';
+	echo "<b>Author</b>  : ". $this->printauthorHtmlTag().'<br>';
 }
 
 }

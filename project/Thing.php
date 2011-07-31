@@ -83,30 +83,29 @@ return $this->name->value;
 
 function setNameTag($var) {
 
-$this->name->tag = $var;
+	$this->name->tag->tagtype = $var;
 }
 
 function getNameTag() {
-
-	if(strlen($this->name->tag) != 0){
-		return $this->name->tag;
+	if(strlen($this->name->tag->tagtype) != 0){
+		return $this->name->tag->tagtype;
 	}
 	else{
-		return 'h1';
+		return 'span';
 	}
 
 }
 function setNameAttributes($var) {
 
 $class = get_class($this) . ' name ' . $var;
-$this->name->attributes['class'] = $class;
-$this->name->attributes['itemprop'] = 'name';
+$this->name->tag->attributes['class'] = $class;
+$this->name->tag->attributes['itemprop'] = 'name';
 
 }
 
 function getNameAttributes() {
 
-return $this->name->attributes;
+return $this->name->tag->attributes;
 
 }
 
@@ -124,14 +123,14 @@ return $this->url->value;
 
 function setUrlTag($var) {
 
-	$this->url->tag = $var;
+	$this->url->tag->tagtype = $var;
 
 }
 
 function getUrlTag() {
 
-	if(strlen($this->url->tag) != 0){
-		return $this->url->tag;
+	if(strlen($this->url->tag->tagtype) != 0){
+		return $this->url->tag->tagtype;
 	}
 	else{
 		return 'a';
@@ -140,14 +139,14 @@ function getUrlTag() {
 function setUrlAttributes($var) {
 
 	$class = get_class($this) . ' url ' . $var;
-	$this->url->attributes['class'] = $class;
-	$this->url->attributes['itemprop'] = 'url';
+	$this->url->tag->attributes['class'] = $class;
+	$this->url->tag->attributes['itemprop'] = 'url';
 
 }
 
 function getUrlAttributes() {
 
-return $this->url->attributes;
+return $this->url->tag->attributes;
 
 }
 function setImageValue($var) {
@@ -164,31 +163,31 @@ return $this->image->value;
 
 function setImageTag($var) {
 
-	if(strlen($this->image->tag) != 0){
-		return $this->image->tag;
+	$this->image->tag->tagtype=$var;
+
+}
+
+function getImageTag() {
+
+	if(strlen($this->image->tag->tagtype) != 0){
+		return $this->image->tag->tagtype;
 	}
 	else{
 		return 'img';
 	}
 
 }
-
-function getImageTag() {
-
-return $this->image->tag;
-
-}
 function setImageAttributes($var) {
 
 $class = get_class($this) . ' image ' . $var;
-$this->image->attributes['class'] = $class;
-$this->image->attributes['itemprop'] = 'image';
+$this->image->tag->attributes['class'] = $class;
+$this->image->tag->attributes['itemprop'] = 'image';
 
 }
 
 function getImageAttributes() {
 
-return $this->image->attributes;
+return $this->image->tag->attributes;
 
 }
 function setDescriptionValue($var) {
@@ -204,8 +203,8 @@ function getDescriptionValue() {
 }
 function getDescriptionTag() {
 
-	if(strlen($this->description->tag) != 0){
-		return $this->description->tag;
+	if(strlen($this->description->tag->tagtype) != 0){
+		return $this->description->tag->tagtype;
 	}
 	else{
 		return 'span';
@@ -255,7 +254,7 @@ $this->name->form->fieldtype = $var;
 }
 function setDescriptionTag($var) {
 
-$this->description->tagtype = $var;
+$this->description->tag->tagtype = $var;
 
 }
 
@@ -263,14 +262,14 @@ $this->description->tagtype = $var;
 function setDescriptionAttributes($var) {
 
 $class = get_class($this) . ' description ' . $var;
-$this->description->attributes['class'] = $class;
-$this->description->attributes['itemprop'] = 'description';
+$this->description->tag->attributes['class'] = $class;
+$this->description->tag->attributes['itemprop'] = 'description';
 
 }
 
 function getDescriptionAttributes() {
 
-return $this->description->attributes;
+return $this->description->tag->attributes;
 
 }
 
@@ -328,10 +327,25 @@ echo '<b>Image </b> :'. $this->printImageHtmlTag().'<br>';
 //$this->printNameHtmlTag();
     
 }
+public function UpdateThing($_criteria, $_newData)
+{
+
+	$dbl=new DBLayer();
+	$dbl->setCollectionObj($this->Colname);
+	$this->objID=$dbl->UpdateCollection($this->Colname, $_criteria, $_newData);
+	$cursor = $dbl->get_CollectionObjectbyid($this->Colname,$this->objID);
+	foreach ($cursor as $arr)
+	{
+		$this->name->value = $arr["name"];
+		$this->url->value = $arr["url"];
+		$this->image->value = $arr["image"];
+		$this->description->value = $arr["description"];
+	}
+}
 private function printNameHtmlTag()
 {
-$tag = new Tag($this->getNameTag(), $this->getNameAttributes(), $this->getNameValue());
-return $tag->get_tag();
+	$tag = new Tag($this->getNameTag(), $this->getNameAttributes(), $this->getNameValue());
+	return $tag->get_tag();
 }
 private function printUrlHtmlTag(){
 $tag = new Tag($this->getUrlTag(), $this->getUrlAttributes(), $this->getUrlValue());

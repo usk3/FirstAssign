@@ -15,15 +15,18 @@ if (empty($_POST["RecipeName"]) && empty($_POST["Description"]) && empty($_POST[
  }
 else
 {
-$thing=new Recipe();
-echo $thing->PrintThing();
-//echo $thing->printHtml();
-echo $thing->PrintCreativeWork();
-echo $thing->PrintRecipeWork();
+$thing=new Recipe('' ,'',''); //As Thing, the super parent class extends Tag. Tag construtor is invoked.
+//echo $thing->PrintThing();
+//echo $thing->PrintCreativeWork();
+//echo $thing->PrintRecipeWork();
 echo 'Recipe Saved Successfully.';
 //$thing=new Recipe();
 //echo $thing->SearchThing("name", $_POST["RecipeName"]);
 //echo $thing->SearchCreativeWork();
+//$thing1 = new Recipe('','',''); //As Thing, the super parent class extends Tag. Tag construtor is invoked.
+$newdata = array('$set' => array("author" => "John Smith"));
+echo $thing->UpdateThing(array("name" => "Coffee"), $newdata);
+
 }
 ?>
 <body>
@@ -52,10 +55,12 @@ echo 'Recipe Saved Successfully.';
         <td align="left"><input  id="AboutID" type="text" name="About" /></td>  
         </tr>
         <tr align="center">
-        <td align="right"><strong>Author:</strong></td>
+        <td align="right"><strong>Author:</strong></td> 
+        
+        
         <td align="left"><input  id="AuthorID" type="text" name="Author" /></td>  
-        </tr>
-        <tr align="center">
+        </tr>10
+        
         <td align="right"><strong>Ingredients:</strong></td>
         <td align="left"><input  id="ingrenID" type="text" name="Ingredients" /></td>  
         </tr>

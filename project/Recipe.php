@@ -116,6 +116,21 @@ $this->ingredients->value = $arr['ingredients'];
 echo "<b>Instructions</b> : " . $this->printinstructionsHtmlTag().'<br>';
 echo "<b>Ingredients</b>  : ". $this->printingredientsHtmlTag().'<br>';
 }
+public function UpdateRecipe($_criteria, $_newData)
+{
+
+	$dbl=new DBLayer();
+	$dbl->setCollectionObj($this->Colname);
+	$this->objID=$dbl->UpdateCollection($this->Colname, $_criteria, $_newData);
+	$cursor = $dbl->get_CollectionObjectbyid($this->Colname,$this->objID);
+	foreach ($cursor as $arr)
+	{
+		$this->instructions->value = $arr['instructions'];
+		$this->ingredients->value = $arr['ingredients'];
+	}
+	echo "<b>Instructions</b> : " . $this->printinstructionsHtmlTag().'<br>';
+	echo "<b>Ingredients</b>  : ". $this->printingredientsHtmlTag().'<br>';
+}
 
 }
 ?>

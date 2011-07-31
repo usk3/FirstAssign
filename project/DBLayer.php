@@ -69,7 +69,7 @@ class DBLayer
     //Insert obj values into Collection
     if(!is_null($colName)|| !is_null($this->Collect))
     $this->Collect=$this->dbObj->selectCollection("$colName");  
-    $this->Collect->update($criteria, $newdata);
+    $this->Collect->update($criteria, $newData);
     }
     //Remove collection Record
     public function RemoveCollection($colName,$criteria)
@@ -79,7 +79,6 @@ class DBLayer
     $this->Collect=$this->dbObj->selectCollection("$colName");  
     $this->Collect->remove($criteria, true );
     }
-    
 }
 /*SingleTon design Pattern Implementation*/
 class singleton
