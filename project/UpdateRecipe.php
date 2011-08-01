@@ -2,29 +2,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<form action="UpdateRecipe.php" method="post" >
+<form action="UpdateRecipe.php" method="post" />
 <title>Schema Creator</title>
 </head>
 <?php
 function __autoload($class_name) {
 include $class_name . '.php';
 }
-if (empty($_POST["RecipeName"]) || empty($_POST["Description"]) || empty($_POST["ImageName"]) || empty($_POST["URLName"]))
+if (empty($_POST["RecipeName"]) && empty($_POST["Description"]) && empty($_POST["ImageName"]) && empty($_POST["URLName"]))
 {
  echo 'Please Enter Recipe Information.' ;
  }
 else
 {
 $thing=new Recipe('' ,'',''); //As Thing, the super parent class extends Tag. Tag construtor is invoked.
-echo $thing->saveThing();
-echo $thing->saveCreativeWork();
-echo $thing->saveRecipeWork();
-echo 'Recipe Saved Successfully.';
+echo $thing->UpdateThing("name", $_POST["RecipeName"]);
+//echo $thing->UpdateCreativeWork();
+//echo $thing->UpdateRecipe();
+echo 'Recipe Updated Successfully.';
 }
 ?>
 <body>
     <div style="border-style:outset; width: 450px" align="left">
-        <h2 align="center" style="color:red">Add Recipe</h2>
+        <h2 align="center" style="color:red">Update Recipe</h2>
         <h5 style="color: red"><h5>
         <table width="400" border="0">
         <tr >
@@ -61,10 +61,12 @@ echo 'Recipe Saved Successfully.';
         <td align="right"><strong>Instructions:</strong></td>
         <td align="left"><input  id="instructID" type="text" name="Instructions" /></td>  
         </tr>
-        <tr align="left" >
-            <td colspan="2" align="center"><input type="submit"  name="Check" title="Check" value="Update Recipe"/><h4><a href='index.php'>Search Recipe</a></h4></td>
-        </tr>
-        </table>
+		<tr align="left">
+		<td colspan="2" align="center"><input type="submit" name="Check"
+					title="Check" value="Update Recipe" />
+		</td>
+		</tr>
+		</table>
         </div>
 </body>
 </form>

@@ -89,9 +89,9 @@ class DBLayer
     public function RemoveCollection($colName,$criteria)
     {
     //Insert obj values into Collection
-    if(!is_null($colName)|| !is_null($this->Collect))
-    $this->Collect=$this->dbObj->selectCollection("$colName");  
-    $this->Collect->remove($criteria, true );
+    	if(!is_null($colName)|| !is_null($this->Collect))
+    	$this->Collect=$this->dbObj->selectCollection("$colName");
+    	$this->Collect->remove($criteria, true );
     }
 }
 /*SingleTon design Pattern Implementation*/

@@ -344,12 +344,22 @@ public function saveThing()
 		$this->description->value = $arr["description"];
 	}
 }
-public function UpdateThing($_criteria, $_newData)
+public function UpdateThing($paramName,$paramValue)
 {
-
 	$dbl=new DBLayer();
 	$dbl->setCollectionObj($this->Colname);
-	$this->objID=$dbl->UpdateCollection($this->Colname, $_criteria, $_newData);
+	$cursor = $dbl->get_CollectionObjectbysearchParameter($this->Colname,$paramName, $paramValue);
+	foreach ($cursor as $arr)
+	{
+		$this->objID=$arr["_id"];
+		$this->name->value = $arr["name"];
+		$this->url->value = $arr["url"];
+		$this->image->value = $arr["image"];
+		$this->description->value = $arr["description"];
+	}
+	$obj=$this->prepare_array();
+	$dbl->SaveCollection($obj,$this->objID);
+
 	$cursor = $dbl->get_CollectionObjectbyid($this->Colname,$this->objID);
 	foreach ($cursor as $arr)
 	{
@@ -359,6 +369,23 @@ public function UpdateThing($_criteria, $_newData)
 		$this->description->value = $arr["description"];
 	}
 }
+public function RemoveThing($paramName,$paramValue){
+	$dbl=new DBLayer();
+	$dbl->setCollectionObj($this->Colname);
+	$cursor = $dbl->get_CollectionObjectbysearchParameter($this->Colname,$paramName, $paramValue);
+	foreach ($cursor as $arr)
+	{
+		$this->objID=$arr["_id"];
+		$this->name->value = $arr["name"];
+		$this->url->value = $arr["url"];
+		$this->image->value = $arr["image"];
+		$this->description->value = $arr["description"];
+	}
+	$obj=$this->prepare_array();
+	$criteria = array("_id" => $this->objID);
+	$this->objID=$dbl->RemoveCollection($this->Colname,$criteria);
+}
+
 private function printNameHtmlTag()
 {
 	$tag = new Tag($this->getNameTag(), $this->getNameAttributes(), $this->getNameValue());
@@ -382,6 +409,9 @@ public function SearchThing($parmName,$parmval)
 $dbl=new DBLayer();
 $dbl->setCollectionObj($this->Colname);
 $cursor = $dbl->get_CollectionObjectbysearchParameter($this->Colname,$parmName, $parmval);  
+if (is_null($cursor)){
+	return;
+}
 foreach ($cursor as $arr) 
 {
 $this->objID=$arr["_id"];
@@ -391,10 +421,11 @@ $this->image->value = $arr["image"];
 $this->description->value = $arr["description"];
 }
 //echo 'Printing';
-echo '<b>Name<b></b> :'. $this->printNameHtmlTag().'<br>';
-echo '<b>Description</b> :'. $this->printDescriptionHtmlTag().'<br>';
-echo '<b>URL </b> :'. $this->printUrlHtmlTag().'<br>';
-echo '<b>Image </b> :'. $this->printImageHtmlTag().'<br>';
+
+echo '<b>Name<b></b> :'. $this->getNameValue().'<br>';
+echo '<b>Description</b> :'. $this->getDescriptionValue().'<br>';
+echo '<b>URL </b> :'. $this->getUrlValue().'<br>';
+echo '<b>Image </b> :'. $this->getImageValue().'<br>';
 
 //$this->printNameHtmlTag();
 
