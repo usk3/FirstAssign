@@ -1,0 +1,80 @@
+h1 {
+	font-family: "Times New Roman";
+	color: green;
+}
+
+h2 {
+	font-family: "Times New Roman";
+	color: blue;
+}
+
+h3 {
+	font-family: "Times New Roman";
+	color: red;
+}
+
+h4 {
+	font-family: "Times New Roman";
+	color: orange;
+}
+
+h5 {
+	font-family: "Times New Roman";
+	color: pink;
+}
+
+h6 {
+	font-family: "Times New Roman";
+	color: #d0e4fe;
+}
+
+li {
+	color: green;
+}
+
+a:link {
+	color: green;
+}
+
+a:hover {
+	color: blue;
+}
+
+a:visited {
+	color: red;
+}
+
+a:active {
+	color: yellow;
+}
+p {
+	font-family: "Times New Roman";
+	font-size: 12px;
+	color: blue;
+}
+
+blockquote {
+	font-style: italic
+}
+
+.class-odd-row {
+	background-color: red;
+}
+
+.class-even-row {
+	background-color: green;
+}
+
+.class-header {
+	background-color: #d0e4fe;
+}
+
+.horizontalMenu{
+	list-style-type: none;
+	display: inline;
+}
+
+.verticalMenu{
+	list-style-type: none;
+}
+

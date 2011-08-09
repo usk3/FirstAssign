@@ -1,0 +1,139 @@
+#container
+{
+	margin: 0 10px 0 10px;
+	width: 960px;
+	background: #fff;
+}
+
+#banner
+{
+	background: #ccc;
+	padding: 20px;
+}
+
+#banner h1 { margin: 0; }
+
+#primaryLinks
+{
+	float: left;
+	width: 960px;
+	background: #333;
+}
+
+#primaryLinks ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+
+#primaryLinks li a
+{
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	color: #fff;
+	text-decoration: none;
+	border-right: 1px solid #fff;
+}
+
+#primaryLinks li a:hover { background: #383; }
+
+#secondaryLinks
+{
+	float: left;
+	width: 960px;
+	background: #ccc;
+}
+
+#secondaryLinks ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+#secondaryLinks ul li
+{
+	list-style-type: none;
+	display: inline;
+}
+
+#secondaryLinks li a
+{
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	color: #fff;
+	text-decoration: none;
+	border-right: 1px solid #fff;
+}
+
+#secondaryLinks li a:hover { background: #383; }
+#content-container
+{
+	float: left;
+	width: 960px;
+	background: #fff;
+}
+
+#left
+{
+	float: left;
+	width: 160px;
+	padding: 20px 0;
+	margin: 0 20px;
+	display: inline;
+}
+
+#left ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+#left ul li
+{
+	margin: 0 0 1em;
+	padding: 0;
+	list-style-type: none;
+}
+
+#center
+{
+	float: left;
+	width: 500px;
+	padding: 20px 0;
+	margin: 0 0 0 30px;
+}
+
+
+#aside
+{
+	float: right;
+	width: 200px;
+	padding: 20px 0;
+	margin: 0 20px 0 0;
+	display: inline;
+}
+
+#right ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+#right ul li
+{
+	margin: 0 0 1em;
+	padding: 0;
+	list-style-type: none;
+}
+
+#footer
+{
+	clear: left;
+	background: #ccc;
+	text-align: right;
+	padding: 20px;
+	height: 1%;
+}
